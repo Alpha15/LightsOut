@@ -21,7 +21,7 @@ public class Window_Frame extends JFrame implements Runnable {
                 display_height / 2 - height / 2,
                 width,
                 height);
-        getContentPane().add(new boot_Launcher());
+        getContentPane().add(new BootLauncher());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }

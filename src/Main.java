@@ -1,9 +1,9 @@
 public class Main {
 
-    public static Window_Frame frame;
+    public static WindowFrame frame;
 
     public static void main(String[] args) {
-        frame = new Window_Frame();
+        frame = new WindowFrame();
     }
 }
 
