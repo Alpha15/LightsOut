@@ -20,9 +20,9 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
     private int margin_horizontal;  // 水平
     private int margin_vertival;  // 垂直
     private int time_pos_x = 0;
-    Calendar cTime;
-    Point pt;
-    LightData[][] data;
+    private Calendar cTime;
+    private Point pt;
+    private LightData[][] data;
 
     public DrawCanvas(int width, int height) {
         this.panel_width = width;
