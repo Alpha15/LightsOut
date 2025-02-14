@@ -19,7 +19,7 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
     private int cell_height;
     private int margin_horizontal;  // 水平
     private int margin_vertival;  // 垂直
-    int time_x = 0;
+    private int time_pos_x = 0;
     Calendar cTime;
     Point pt;
     LightData[][] data;
@@ -56,10 +56,15 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
         g.setColor(Color.BLACK);
 
         cTime = Calendar.getInstance();
-        g.drawString("現在時刻:" + cTime.get(Calendar.HOUR) + "時" + cTime.get(Calendar.MINUTE) + "分"
-                + cTime.get(Calendar.SECOND) + "秒です", time_x++, 50);
-        if (time_x >= 400)
-            time_x = -150;
+        g.drawString(
+                "現在時刻:"
+                + cTime.get(Calendar.HOUR)+ "時" 
+                + cTime.get(Calendar.MINUTE) + "分"
+                + cTime.get(Calendar.SECOND) + "秒です",
+                time_pos_x++, 
+                50);
+        if (time_pos_x >= 400)
+            time_pos_x = -150;
 
         for (int i = 0; i < (panel_width - 200) / 50; i++) {
             for (int j = 0; j < (panel_height - 200) / 50; j++) {
