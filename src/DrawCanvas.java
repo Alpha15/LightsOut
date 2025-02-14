@@ -41,7 +41,7 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < data.length; i++) {
                     for (int j = 0; j < data[i].length; j++) {
-                        data[i][j].setOn_off(false);
+                        data[i][j].setIsActive(false);
                     }
                 }
             }
@@ -77,7 +77,7 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
                 d = data[i][j];
-                if (d.getOn_off()) {
+                if (d.getIsActive()) {
                     g.fillRect(d.getX(), d.getY(), d.getWidth(), d.getHeight());
                 }
             }
@@ -92,37 +92,37 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
                 d = data[i][j];
                 if (d.getX() < x && (d.getX() + d.getWidth()) > x) {
                     if (d.getY() < y && (d.getY() + d.getHeight()) > y) {
-                        data[i][j].setOn_off(!data[i][j].getOn_off());
+                        data[i][j].setIsActive(!data[i][j].getIsActive());
                         if (i == 0) {
-                            data[i + 1][j].setOn_off(!data[i + 1][j].getOn_off());
+                            data[i + 1][j].setIsActive(!data[i + 1][j].getIsActive());
                             if (j == 0) {
-                                data[i][j + 1].setOn_off(!data[i][j + 1].getOn_off());
+                                data[i][j + 1].setIsActive(!data[i][j + 1].getIsActive());
                             } else if (j == data[i].length - 1) {
-                                data[i][j - 1].setOn_off(!data[i][j - 1].getOn_off());
+                                data[i][j - 1].setIsActive(!data[i][j - 1].getIsActive());
                             } else {
-                                data[i][j + 1].setOn_off(!data[i][j + 1].getOn_off());
-                                data[i][j - 1].setOn_off(!data[i][j - 1].getOn_off());
+                                data[i][j + 1].setIsActive(!data[i][j + 1].getIsActive());
+                                data[i][j - 1].setIsActive(!data[i][j - 1].getIsActive());
                             }
                         } else if (i == data.length - 1) {
-                            data[i - 1][j].setOn_off(!data[i - 1][j].getOn_off());
+                            data[i - 1][j].setIsActive(!data[i - 1][j].getIsActive());
                             if (j == 0) {
-                                data[i][j + 1].setOn_off(!data[i][j + 1].getOn_off());
+                                data[i][j + 1].setIsActive(!data[i][j + 1].getIsActive());
                             } else if (j == data[i].length - 1) {
-                                data[i][j - 1].setOn_off(!data[i][j - 1].getOn_off());
+                                data[i][j - 1].setIsActive(!data[i][j - 1].getIsActive());
                             } else {
-                                data[i][j + 1].setOn_off(!data[i][j + 1].getOn_off());
-                                data[i][j - 1].setOn_off(!data[i][j - 1].getOn_off());
+                                data[i][j + 1].setIsActive(!data[i][j + 1].getIsActive());
+                                data[i][j - 1].setIsActive(!data[i][j - 1].getIsActive());
                             }
                         } else {
-                            data[i + 1][j].setOn_off(!data[i + 1][j].getOn_off());
-                            data[i - 1][j].setOn_off(!data[i - 1][j].getOn_off());
+                            data[i + 1][j].setIsActive(!data[i + 1][j].getIsActive());
+                            data[i - 1][j].setIsActive(!data[i - 1][j].getIsActive());
                             if (j == 0) {
-                                data[i][j + 1].setOn_off(!data[i][j + 1].getOn_off());
+                                data[i][j + 1].setIsActive(!data[i][j + 1].getIsActive());
                             } else if (j == data[i].length - 1) {
-                                data[i][j - 1].setOn_off(!data[i][j - 1].getOn_off());
+                                data[i][j - 1].setIsActive(!data[i][j - 1].getIsActive());
                             } else {
-                                data[i][j + 1].setOn_off(!data[i][j + 1].getOn_off());
-                                data[i][j - 1].setOn_off(!data[i][j - 1].getOn_off());
+                                data[i][j + 1].setIsActive(!data[i][j + 1].getIsActive());
+                                data[i][j - 1].setIsActive(!data[i][j - 1].getIsActive());
                             }
                         }
                     }

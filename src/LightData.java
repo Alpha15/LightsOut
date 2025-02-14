@@ -1,15 +1,15 @@
 public class LightData {
     private int x, y;
     private int width, height;
-    private boolean on_off;
+    private boolean isActive;
 
     // Constructor
-    public LightData(int x, int y, int width, int height, boolean on_off) {
+    public LightData(int x, int y, int width, int height, boolean isActive) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.on_off = on_off;
+        this.isActive = isActive;
     }
 
     // Setter
@@ -29,8 +29,8 @@ public class LightData {
         this.height = height;
     }
 
-    public void setOn_off(boolean on_off) {
-        this.on_off = on_off;
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     // Getter
@@ -50,7 +50,7 @@ public class LightData {
         return this.height;
     }
 
-    public boolean getOn_off() {
-        return this.on_off;
+    public boolean getIsActive() {
+        return this.isActive;
     }
 }
