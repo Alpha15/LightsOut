@@ -5,12 +5,12 @@ import java.awt.Toolkit;
 
 import java.lang.Runnable;
 
-public class Window_Frame extends JFrame implements Runnable {
+public class WindowFrame extends JFrame implements Runnable {
     static int display_height;
     static int display_width;
     private Thread th = null;
 
-    public Window_Frame() {
+    public WindowFrame() {
         super("起動ランチャー");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         display_width = screenSize.width;
@@ -26,7 +26,7 @@ public class Window_Frame extends JFrame implements Runnable {
         setVisible(true);
     }
 
-    public Window_Frame(String title, int width, int height) {
+    public WindowFrame(String title, int width, int height) {
         super(title);
         setBounds(display_width / 2 - width / 2,
                 display_height / 2 - height / 2,

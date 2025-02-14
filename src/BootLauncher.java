@@ -7,11 +7,11 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class boot_Launcher extends JPanel implements ActionListener {
+public class BootLauncher extends JPanel implements ActionListener {
     String[] size_str = { "3x3", "5x5" };
     JComboBox select_size;
 
-    public boot_Launcher() {
+    public BootLauncher() {
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
         select_size = new JComboBox(size_str);
@@ -50,7 +50,7 @@ public class boot_Launcher extends JPanel implements ActionListener {
                 height = 50 * 3;
             }
             Main.frame.dispose();
-            Main.frame = new Window_Frame("LightsOut:" + size, 200 + width, 200 + height);
+            Main.frame = new WindowFrame("LightsOut:" + size, 200 + width, 200 + height);
         }
         if (e.getActionCommand().equals("exit")) {
             System.exit(1);
