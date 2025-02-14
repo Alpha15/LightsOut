@@ -13,10 +13,15 @@ import java.awt.Color;
 import java.awt.Point;
 
 public class DrawCanvas extends JPanel implements MouseMotionListener, MouseListener {
+    private int panel_width;
+    private int panel_height;
+    private int cell_width;
+    private int cell_height;
+    private int margin_horizontal;  // 水平
+    private int margin_vertival;  // 垂直
     int time_x = 0;
     Calendar cTime;
     Point pt;
-    int panel_width, panel_height;
     LightData[][] data;
 
     public DrawCanvas(int width, int height) {
