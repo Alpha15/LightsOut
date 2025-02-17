@@ -18,21 +18,38 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
     private int cell_width;
     private int cell_height;
     private int margin_horizontal;  // 水平
-    private int margin_vertival;  // 垂直
+    private int margin_vertical;  // 垂直
     private int time_pos_x = 0;
     private Calendar cTime;
     private Point pt;
     private LightData[][] data;
 
-    public DrawCanvas(int width, int height) {
-        this.panel_width = width;
-        this.panel_height = height;
+    public DrawCanvas(int p_width, int p_height, int c_width, int c_height, int m_horizontal, int m_vertical) {
+        this.panel_width = p_width;
+        this.panel_height = p_height;
+        this.cell_width = c_width;
+        this.cell_height = c_height;
+        this.margin_horizontal = m_horizontal;
+        this.margin_vertical = m_vertical;
         addMouseMotionListener(this);
         addMouseListener(this);
-        data = new LightData[(width - 200) / 50][(height - 200) / 50];
+        data = new LightData[(this.panel_width - this.margin_horizontal) / this.cell_width][(this.panel_height - this.margin_vertical) / this.cell_height];
+        /*
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
                 data[i][j] = new LightData(101 + 50 * j, 101 + 50 * i, 48, 48, false);
+            }
+        }
+        */
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                data[i][j] = new LightData(
+                        ((this.margin_horizontal/2)+1) + this.cell_width * j,
+                        ((this.margin_vertical/2)+1) + this.cell_height * i,
+                        this.cell_width - 2,
+                        this.cell_height - 2,
+                        false
+                        );
             }
         }
 
@@ -66,9 +83,20 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
         if (time_pos_x >= 400)
             time_pos_x = -150;
 
+        /*
         for (int i = 0; i < (panel_width - 200) / 50; i++) {
             for (int j = 0; j < (panel_height - 200) / 50; j++) {
                 g.drawRect(100 + i * 50, 100 + j * 50, 50, 50);
+            }
+        }
+        */
+        for (int i = 0; i < (this.panel_width - this.margin_horizontal) / this.cell_width; i++) {
+            for (int j = 0; j < (this.panel_height - this.margin_vertical) / this.cell_height; j++) {
+                g.drawRect(
+                        (this.margin_horizontal/2) + i * this.cell_width,  // width
+                        (this.margin_vertical/2) + j * this.cell_height,  // height
+                        this.cell_width, this.cell_height  // x, y
+                        );
             }
         }
 
@@ -136,27 +164,33 @@ public class DrawCanvas extends JPanel implements MouseMotionListener, MouseList
 
     }
 
+    @Override
     public void mouseEntered(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseExited(MouseEvent e) {
 
     }
 
+    @Override
     public void mousePressed(MouseEvent e) {
         pt = e.getPoint();
         Check_Clicked((int) pt.getX(), (int) pt.getY());
     }
 
+    @Override
     public void mouseReleased(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseDragged(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseMoved(MouseEvent e) {
 
     }

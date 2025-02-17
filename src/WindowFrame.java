@@ -32,7 +32,8 @@ public class WindowFrame extends JFrame implements Runnable {
                 display_height / 2 - height / 2,
                 width,
                 height);
-        getContentPane().add(new DrawCanvas(width, height));
+        getContentPane().add(new DrawCanvas(width, height, 50, 50, 200, 200));
+        //getContentPane().add(new DrawCanvas(width, height, 25, 25, 100, 100));
         this.startGameLoop();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
