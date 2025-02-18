@@ -58,7 +58,7 @@ public class BootLauncher extends JPanel implements ActionListener {
             Main.frame = new WindowFrame("LightsOut:" + size, 200 + width, 200 + height);
         }
         if (e.getActionCommand().equals("exit")) {
-            System.exit(1);
+            System.exit(0);
         }
     }
 }
