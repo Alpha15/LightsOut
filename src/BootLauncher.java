@@ -8,8 +8,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class BootLauncher extends JPanel implements ActionListener {
-    String[] size_str = { "3x3", "5x5" };
-    JComboBox select_size;
+    private String[] size_str = { "3x3", "5x5", "7x7" };
+    private JComboBox select_size;
+    private final int c_w = 50;  // cell_width
+    private final int c_h = 50;  // cell_height
 
     public BootLauncher() {
         JPanel p1 = new JPanel();
@@ -40,14 +42,17 @@ public class BootLauncher extends JPanel implements ActionListener {
             System.out.println(select_size.getSelectedItem());
             String size = (String) select_size.getSelectedItem();
             if (size.equals("3x3")) {
-                width = 50 * 3;
-                height = 50 * 3;
+                width = c_w * 3;
+                height = c_h * 3;
             } else if (size.equals("5x5")) {
-                width = 50 * 5;
-                height = 50 * 5;
+                width = c_w * 5;
+                height = c_h * 5;
+            } else if (size.equals("7x7")) {
+                width = c_w * 7;
+                height = c_h * 7;
             } else {
-                width = 50 * 3;
-                height = 50 * 3;
+                width = c_w * 3;
+                height = c_h * 3;
             }
             Main.frame.dispose();
             Main.frame = new WindowFrame("LightsOut:" + size, 200 + width, 200 + height);
